@@ -1,0 +1,37 @@
+/* Variables */
+/* Header */
+/* Mixins */
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+/* line 13, ../sass/checkout.sass */
+.header {
+  padding: 20px 0;
+}
+
+/* line 16, ../sass/checkout.sass */
+.shop {
+  float: none;
+}
+/* line 19, ../sass/checkout.sass */
+.shop a:link, .shop a:visited {
+  display: block;
+  padding-top: 40px;
+  background: url('{{ "image-logo.svg" | asset_url }}') no-repeat left top;
+  background-size: auto 40px;
+}
+@media (max-width: 950px) {
+  /* line 19, ../sass/checkout.sass */
+  .shop a:link, .shop a:visited {
+    background-position: center;
+    background-size: auto 30px;
+  }
+}
+/* line 29, ../sass/checkout.sass */
+.shop a:link .shop__name, .shop a:visited .shop__name {
+  display: none;
+}
+
+/* line 32, ../sass/checkout.sass */
+.payment-due__price {
+  color: #198bc8;
+}

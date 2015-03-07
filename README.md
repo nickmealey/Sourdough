@@ -1,6 +1,4 @@
 Sourdough
 =========
 
-"Sourdough" starter theme for Shopify -- super simple and ready for your html and css
-
-Thanks to Colin Nederkoorn: https://github.com/sud0n1m and Mark Dunkley: https://twitter.com/markdunkley
+A Shopify starter theme with Compass and Sass. You can read a little more about this method [on my blog](http://www.mealeydev.com/blog/shopify-and-sass/)

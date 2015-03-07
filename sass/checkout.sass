@@ -1,0 +1,33 @@
+/* Variables*/
+@import "base/colors"
+@import "base/variables"
+
+/* Mixins */
+@import "bourbon/bourbon"
+@import "layout/breakpoints"
+@import "base/mixins"
+
+/* Fonts */
+@import "base/fonts"
+
+.header
+  padding: 20px 0
+
+.shop
+  float: none
+  
+  a:link, a:visited
+    display: block
+    padding-top: 40px
+    background: url('{{ "image-logo.svg" | asset_url }}') no-repeat left top
+    background-size: auto 40px
+    
+    +scale-down("medium")
+      background-position: center
+      background-size: auto 30px
+    
+    .shop__name
+      display: none
+      
+.payment-due__price
+  color: $primary-color

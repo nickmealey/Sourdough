@@ -1,0 +1,73 @@
+#main
+  margin-bottom: 40px
+  
+.fullwidth
+  margin-bottom: 0
+  
+.content
+  width: 80%
+  max-width: 1200px
+  margin: auto
+  +border-box
+  
+  &.small-content
+    max-width: 450px
+  
+  +respond-to("medium")
+    width: 95%
+  +respond-to("small")
+    width: 95%
+  
+.portal
+  position: relative
+  left: 25%
+  width: 75%
+  
+  +scale-up("medium")
+    #main
+      max-width: 700px
+      margin-left: 10%
+      margin-right: 25%
+  
+  header
+    .logo
+      height: auto !important
+      width: 130px
+      text-align: left
+      img, svg
+        width: 100%
+        height: auto !important
+        
+    .shopper
+      top: 0
+      
+  .content
+    width: calc(100% - 20px)
+      
+  +scale-down("medium")
+    .site-nav
+      display: none
+      
+    width: 100%
+    left: 0
+    
+  .page-footer, .footer-wins
+    width: calc(100% + 20px)
+    position: relative
+    left: -20px
+    
+.two-cell
+  > *
+    width: 50%
+    
+  > *:nth-child(1)
+    float: left
+  
+  > *:nth-child(2)
+    float: right
+  
+  &:after
+    content: ''
+    display: block
+    clear: both
+    

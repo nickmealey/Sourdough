@@ -1,0 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% case template %}
+	{% when 'index' %} <title>{{ shop.name }} | {{ page_title }}</title>
+	{% when '404' %} <title>Page Not Found | {{ shop.name }}</title>
+	{% else %} <title>{{ page_title }} | {{ shop.name }}</title>
+{% endcase %}
+<meta name="description" content="{% if page_description %}{{ page_description }}{% else %}{{ shop.name }}{% endif %}" />
+<link rel="canonical" href="{{ canonical_url }}">
+<meta name="viewport" content="width=device-width">
+<link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}" />

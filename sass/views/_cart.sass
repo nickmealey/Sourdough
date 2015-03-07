@@ -1,0 +1,125 @@
+.cart
+  .cart-table
+    width: 100%
+    text-align: left
+    
+    +respond-to("medium")
+      font-size: 0.8em
+      
+    h2
+      font-size: 1.4em
+    
+    tr
+      border-bottom: 1px solid $water-color
+      
+    td
+      padding: 5px 0
+    
+    // Right align last column
+    th:nth-child(4), td:nth-child(5)
+      text-align: right
+      
+      +respond-to("small")
+        text-align: left
+    
+    thead
+      th
+        padding: 10px 0
+        
+    +respond-to("small")
+      
+      table, tbody, th, td, tr
+        display: block
+        
+      thead
+        display: none
+        
+      tr
+        padding: 10px 0 20px 0
+        
+      td
+        position: relative
+        padding-left: 35%
+        
+        &:nth-of-type(1)
+          padding-left: 0
+          display: inline-block
+          width: calc(30% - 10px)
+          
+          img
+            max-width: 100%
+        &:nth-of-type(2)
+          padding-left: 5%
+          display: inline-block
+          width: 60%
+          font-size: 0.7em
+        &:nth-of-type(3):before
+          content: "Quantity"
+        &:nth-of-type(4):before
+          content: "Price"
+        &:nth-of-type(5):before
+          content: "Total"
+          
+        &:before
+          position: absolute
+          width: calc(30% - 10px)
+          height: 100%
+          left: 0
+    
+  .quantity
+    width: 30px
+    
+.cart-totals
+
+  .cart-totals-table
+    margin-left: auto
+    width: 35%
+  
+    +scale-down("medium")
+      width: 100%
+  
+    td:nth-of-type(2)
+      text-align: right
+  
+    .total-price
+      color: $primary-color
+      font-size: 1.4em
+  
+    tfoot
+      td
+        padding: 15px 0
+        text-align: right
+  
+    .cta-button
+      margin-left: 15px
+    
+  #shipping-calculator
+    display: none
+    opacity: 0
+    text-align: left
+  
+    #shipping-rates
+      padding: 0
+      margin: 10px 0
+      
+      li
+        padding: 0
+        margin: 8px 0
+        list-style-type: none
+      
+        input[type=radio]
+          margin-right: 10px
+      
+  
+  #show-shipping-calculator
+
+    display: none
+  
+    &:checked 
+      & ~ label[for=show-shipping-calculator]
+        color: $primary-color
+    
+      & ~ #shipping-calculator
+        display: block
+        opacity: 1
+        +fadeIn
