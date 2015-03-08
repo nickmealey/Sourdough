@@ -22,7 +22,17 @@
 @import "layout/footer";
 
 /* Modules */
-
+@import "modules/modules";
+@import "modules/shopper";
+@import "modules/quick-cart";
+@import "modules/photoviewer";
+@import "modules/sidemenu";
+@import "modules/product-bit";
+@import "modules/notify";
+@import "modules/bit";
 
 /* Views */
-
+@import "views/customer";
+@import "views/cart";
+@import "views/search";
+@import "views/product";

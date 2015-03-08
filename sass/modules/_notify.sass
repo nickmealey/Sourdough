@@ -1,0 +1,21 @@
+.notify
+  position: fixed
+  opacity: 0
+  bottom: -50%
+  width: 100%
+  padding: 20px
+  +border-box
+  text-align: center
+  background: rgba($primary-color, 0.9)
+  border-top: 3px solid lighten($primary-color, 20%)
+  color: white
+  font-size: 1.6em
+  z-index: 300
+  transition: bottom 0.3s cubic-bezier(1.000, 0.265, 0.000, 0.760), opacity 0.3s cubic-bezier(1.000, 0.265, 0.000, 0.760)
+  
+  &.active
+    bottom: 0
+    opacity: 1
+  
+  +respond-to("small")
+    font-size: 1.1em

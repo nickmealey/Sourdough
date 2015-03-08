@@ -1,0 +1,25 @@
+.product-photos
+  text-align: center
+  padding-top: 10px
+  
+  .display-photo
+    height: 100%
+    position: relative
+      
+  .product-photo-thumbs
+    margin: 0
+    padding: 0
+    
+    img
+      padding: 0
+      margin: 10px
+      list-style-type: none
+      display: inline-block
+      vertical-align: middle
+      
+      +respond-to("small")
+        width: 60px
+      
+      &.active
+        border: 2px solid $primary-color
+    

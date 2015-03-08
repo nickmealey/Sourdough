@@ -1,0 +1,32 @@
+<div class="quick-cart {{ class_name }}">
+  {% raw %}
+  <ul class="cart-contents {{cart_is_empty}}">
+    <li class="empty-cart-message">
+      {% endraw %}
+      
+      {% comment %}
+        Get a random product and link its url
+      {% endcomment%}
+      
+      {% assign all_products = collections.all.products | map: 'url' %}
+      {% assign random = 'now' | date: '%M' | times: 1.00 | divided_by: 60.00 %}
+      {% assign random = collections.all.products.count | times: random | round %}
+      {% assign random_product_url = all_products[random] %}
+      
+      <h1>Add <a href="{{ random_product_url }}">something</a> to your cart.</h1>
+      {% raw %}
+    </li>
+    {{#items}}
+      <li class="cart-item">
+        <h1><a href="{{url}}">{{title}}</a></h1>
+        <p class="price">{{price}}</p>
+      </li>
+    {{/items}}
+    <li class="price-quote">
+      <p class="price total-price">{{total_price}}</p>
+    </li>
+  </ul>
+  {% endraw %}
+  <a href="/cart" class="button">View Cart</a>
+  <a href="/checkout" class="button cta-button checkout-button">Checkout</a>
+</div>

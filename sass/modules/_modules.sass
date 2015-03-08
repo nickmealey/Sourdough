@@ -1,0 +1,165 @@
+.invisible
+  visibility: hidden
+  position: absolute
+  bottom: 5000px
+  right: 5000px
+  
+.visible
+  visibility: visible !important
+  
+.white
+  color: white
+  
+.clear
+  clear: both
+  
+.thin
+  font-weight: 300
+  
+.upcase
+  +upcase
+  
+.cloud
+  color: $light-color
+  
+.fullwidth
+  width: 100%
+  
+hr
+  border-style: solid
+  border-width: 0px
+  height: 1px
+  background: #e6e6e6
+  &.gray
+    background: gray
+  
+.immersion
+  width: 100%
+  position: relative
+  overflow: hidden
+  text-align: center
+  +align-middle
+  
+  .immersion-media
+    position: absolute
+    
+    // Horizontal
+    @media (min-aspect-ratio: 16/9)
+      top: -1000%
+      bottom: -1000%
+      left: -4px
+      right: 0
+      +align-middle
+      
+      > *:nth-child(1)
+        height: auto
+        width: calc(100% - 4px)
+        
+      &.top
+        top: 0
+        bottom: auto
+        
+      &.bottom
+        top: auto
+        bottom: 0
+    
+    // Vertical
+    @media (max-aspect-ratio: 16/9)
+      top: 0
+      bottom: 0
+      left: -1000%
+      right: -1000%
+      
+      > *:nth-child(1)
+        height: 110%
+        width: auto
+        
+      &.left
+        left: 0
+        text-align: left
+      
+      &.right
+        right: 0
+        text-align: right
+      
+  .immersion-content
+    $immersion-content-width: 500px
+    position: relative
+    display: inline-block
+    text-align: left
+    width: 80%
+    
+    text-shadow: 0 1px 0 white
+    
+    &.white
+      text-shadow: 0 1px 0 black
+    
+    > *
+      max-width: $immersion-content-width
+      
+    &.right
+      > *
+        margin-left: auto
+        
+    &.top, &.bottom
+      position: absolute
+      width: 100%
+      +border-box
+      padding: 0 20%
+      left: 0
+      
+    &.top
+      top: 40px
+    
+    &.bottom
+      bottom: 40px
+      
+    +scale-up("small")
+      &.center
+        > *
+          margin-left: calc(50% - #{$immersion-content-width / 2})
+          
+    +respond-to("small")
+      font-size: 0.8em
+    
+.tiny-search
+  +align-middle
+  display: inline-block
+  min-width: 35px
+  height: 35px
+  border-radius: 20px
+  text-align: center
+  cursor: pointer
+  border: 2px solid white
+
+  #tiny-search-field
+    vertical-align: center
+    width: 1px
+    padding: 0
+    margin: 0 15px 0 0
+    border-width: 0
+    font-size: 16px
+    background: none
+    color: white
+    outline: none
+    opacity: 0
+    transition: all 0.1s ease-out
+    &:focus
+      padding: 0 12px
+      width: 150px
+      opacity: 1
+      transition: all 0.1s ease-out
+
+  .search-icon
+    vertical-align: middle
+    position: relative
+    display: inline-block
+    height: 17px
+    margin-right: -10px
+    left: -15px
+    
+.action-button
+  cursor: pointer
+  
+  &:hover
+    cursor: pointer !important

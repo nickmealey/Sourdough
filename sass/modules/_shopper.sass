@@ -1,0 +1,57 @@
+.shopper
+  position: relative
+  float: right
+  top: -3px
+  
+  *
+    vertical-align: middle
+    
+  .search-form
+    margin: 0
+    display: inline-block
+    
+    .search-icon
+      height: 22px
+
+    input[type=search]
+      width: 60px
+      border-width: 0
+      margin: 2px
+      +transition(width 0.2s ease)
+      
+      &:focus
+        border-width: 2px
+        margin: 0
+        width: 150px
+        margin-left: 5px
+  
+  .account-links
+    display: inline-block
+    font-size: 0.8em
+    margin-right: 5px
+    
+  .cart-button
+    position: relative
+    display: inline-block
+    padding: 0 10px
+    text-decoration: none
+    
+    &.active
+      background: white
+      margin: 0
+      
+    .cart-count
+      color: white
+      background: $primary-color
+      padding: 4px 8px
+      font-size: 0.7em
+      +border-left-radius(2em)
+      +border-right-radius(2em)
+      
+      &.empty-cart
+        display: none
+        
+    img, svg
+      width: 26px
+      height: 25px
+      padding: 0 8px

@@ -1,46 +1,15 @@
-header
-  background: white
-  padding-bottom: 2px
+.page-header
+  background: #eee
+  padding: 15px 0
   
-  .content
-    height: $header-height
-  
-    +scale-down("medium")
-      height: auto
+  .logo
+    display: inline-block
+    vertical-align: middle
+    margin-right: 15px
     
-    +align-middle
-  
-    .logo
-      height: 45%
+  nav
+    display: inline-block
+    vertical-align: middle
+    
+    li
       display: inline-block
-      position: relative
-      top: -3px
-    
-      img, svg
-        height: 100%
-      
-      +scale-down("medium")
-        display: block
-        height: 30px
-    
-  &.immersive-header
-    position: absolute
-    top: 0
-    width: 100%
-    z-index: 200
-    
-    
-    &:not(.active)
-      background: rgba(255,255,255,0)
-      
-      
-      &.light 
-        .logo, .cart-button
-          svg
-            *
-              fill: white
-        nav, .shopper
-          color: white
-        
-          a:link, a:visited
-            color: white

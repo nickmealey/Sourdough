@@ -1,18 +1,15 @@
-<a href="{{ shop.url }}">{{ shop.name }}</a>
-
-{% if customer %}
-	<a href="/account/logout">sign out</a> | <a href="/account">account</a>
-{% else %}
-	<a href="/account/login">sign in</a> | <a href="/account/register">sign up</a>
-{% endif %}
-
-<a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize:'item','items' }}</a>
-
-<form action="/search" method="get">
-	<input type="text" name="q" placeholder="{% if search.performed %}{{ search.terms | escape | downcase }}{% endif %}" />
-	<button type="submit" id="search_submit">search</button>
-</form>
-
-{% for link in linklists.main-menu.links %}
-	<a href="{{ link.url }}">{{ link.title }}</a>
-{% endfor %}
+<header class="page-header">
+  <div class="content">
+    <a href="{{ shop.url }}" class="logo">{{ shop.name }}</a>
+    <nav>
+      <ul>
+        {% for link in linklists.main-menu.links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% include 'shopper' %}
+  </div>
+</header>

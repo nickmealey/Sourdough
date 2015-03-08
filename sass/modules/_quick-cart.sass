@@ -1,0 +1,65 @@
+.quick-cart-template
+  display: none
+.quick-cart
+  z-index: 300
+  position: absolute
+  display: none
+  width: 400px
+  top: calc(100% - 1px)
+  right: 0
+  padding: 10px 20px
+  background: white
+  border: 1px solid $light-color
+  text-align: right
+  +border-box
+  
+  +respond-to("small")
+    width: 300px
+    font-size: 0.8em
+  
+  .cart-contents
+    margin: 0 0 10px 0
+    padding: 0
+    
+    .empty-cart-message
+      display: none
+      h1
+        width: 100%
+        margin: 10px 0
+        font-size: 1.5em
+        font-weight: 300
+        text-align: right
+      
+    &.empty-cart
+      .empty-cart-message
+        display: block
+      .price-quote
+        display: none
+      
+    li
+      list-style-type: none
+      margin: 0
+      
+      h1
+        display: inline-block
+        width: 75%
+        text-align: left
+        vertical-align: middle
+        font-size: 1em
+        margin: 5px 0
+        
+      .price
+        display: inline-block
+        width: 23%
+        vertical-align: middle
+        margin: 0
+        
+        &.total-price
+          color: $primary-color
+          font-size: 1.2em
+          font-weight: 300
+          margin: 8px 0
+          width: 100%
+  
+  .cta-button
+    margin: 10px 0 8px 15px

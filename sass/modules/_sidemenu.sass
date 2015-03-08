@@ -1,0 +1,199 @@
+$sidemenu-padding: 10px
+
+.open-sidemenu
+  background: lighten($dark-color, 5%)
+  padding: 10px
+  margin: 10px
+  color: white
+  font-size: 0.9em
+  cursor: pointer
+  +upcase
+  
+  > *
+    vertical-align: middle
+  
+  span
+    margin-left: 10px
+  +scale-up("medium")
+    display: none
+    
+.sidemenu
+  z-index: 200
+  position: fixed
+  left: 0
+  top: 0
+  width: calc(25% - 20px)
+  height: 100%
+  overflow-y: auto
+  overflow-x: hidden
+  border-right: 2px solid $water-color
+  background: $dark-color
+  
+  +scale-down("medium")
+    &.hidden
+      display: none
+  +respond-to("medium")
+    width: 60%
+    
+  +respond-to("small")
+    width: 100%
+    z-index: 400
+    
+  .close-sidemenu
+    color: white
+    font-size: 2em
+    position: absolute
+    right: 20px
+    padding: 0 10px
+    top: 5px
+    cursor: pointer
+    display: none
+    
+    &:hover
+      color: white
+    
+    +scale-down("medium")
+      display: block
+  
+  h1
+    margin: 0
+    text-align: center
+    padding: 15px $sidemenu-padding
+    font-size: 1.2em
+    font-weight: 300
+    background: lighten($dark-color, 5%)
+    color: $light-color
+    
+    +upcase
+  
+  .search-results
+    color: $light-color
+    text-align: center
+    
+    .search-result
+      display: block
+      font-size: 0.7em
+      text-align: left
+      background: #414B52
+      color: white
+      padding: 5px 0
+      border-bottom: 1px solid $water-color
+      transition: background 0.2s ease
+      
+      &:hover
+        background: lighten($primary-color, 5%)
+        
+      &:active
+        background: red !important
+      
+      h1
+        padding: 5px $sidemenu-padding
+        font-weight: 400
+        text-align: left
+        background: transparent
+        color: white
+        text-transform: none !important
+          
+      p
+        padding: 0 $sidemenu-padding
+        margin: 0
+        opacity: 0.7
+        
+    
+  #search-support-articles
+    padding: $sidemenu-padding
+    
+    input[type=submit]
+      background: url('{{ "image-search.svg" | asset_url }}') no-repeat center
+      background-size: 70% auto
+      height: 25px
+      width: 25px
+      vertical-align: middle
+      border: none
+      position: relative
+      top: -1px
+      opacity: 0.5
+      transition: opacity 0.2s ease
+    
+    #q
+      width: calc(100% - 40px)
+      margin-right: -40px
+      border-color: $water-color
+      color: $light-color
+      
+      &:hover
+        border-color: lighten($water-color, 20%)
+        
+        & ~ input[type=submit]
+          opacity: 0.8
+      &:focus
+        border-color: $primary-color
+        
+        & ~ input[type=submit]
+          opacity: 1
+          
+  .collection-list
+    &, ul
+      padding: 0
+      margin: 0
+    
+    ul
+      opacity: 0
+      transition: opacity 0.2s ease
+      
+      &.active
+        opacity: 100
+        background: lighten($dark-color, 5%)
+    
+    li
+      list-style-type: none
+      margin: 0
+      padding: 0
+        
+      a:link, a:visited
+        display: inline-block
+        width: 100%
+        box-sizing: border-box
+        padding: 10px $sidemenu-padding
+        color: $light-color
+        font-size: 1em
+        border-bottom: 1px solid $ink-color
+        font-weight: 300
+        margin-left: 3px
+        transition: background 0.1s ease
+        
+        &.collection-item:not(.no-children):before
+          content: "\025B8"
+          display: inline-block
+          margin-right: 7px
+          
+        &.article-item
+          background: #414B52
+          color: white
+          font-size: 0.9em
+          padding-left: 20px
+          
+          &:hover, &.active
+            background: lighten($primary-color, 10%)
+        
+        &:hover
+          background: rgba(255,255,255,0.04)
+          
+        &.active
+          margin-left: 0
+          border-left: 3px solid $primary-color
+          background: rgba(0,0,0,0.2)
+          
+          &:not(.no-children):before
+            content: "\025BE"
+        
+        
+      a ~ ul
+        display: none
+          
+          
+      
+      
+      
+      
+      
