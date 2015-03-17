@@ -1,10 +1,10 @@
 <aside class="shopper">
   <form action="/search" method="get" class="search-form">
-    <input type="image" class="search-icon" src="{{ "image-search.svg" | asset_url }}">
+    <input type="image" class="search-icon" src="{{ "search-icon.svg" | asset_url }}">
     <input type="search" name="q" class="small-field" placeholder="Search..." value="{% if search.performed %}{{ search.terms | escape | downcase }}{% endif %}" />
   </form>
   <a href="/cart" class="cart-button">
-    {{ "image-cart.svg" | asset_url | img_tag: "Cart", "svg" }}
+    {{ "cart-icon.svg" | asset_url | img_tag: "Cart", "svg" }}
     <span class="cart-count">1</span>
   </a>
   {% if template != "page.related-products" %}

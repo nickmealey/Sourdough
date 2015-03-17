@@ -1,1 +1,23 @@
-&copy; {{ 'now' | date: "%Y" }} {{ shop.name }} | sourdough starter theme by <a href="http://zakhardage.com">Zak Hardage</a>
+<footer class="site-footer">
+  <div class="content">
+    <ul>
+      {% for link in linklists.footer.links %}
+      <li>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <ul class="social-links">
+      {% for item in settings %}
+        {% assign key = item[0] | split: "." %}
+        {% assign url = item[1] | strip %}
+        {% if key[0] == 'social' and url != "" %}
+          <li>
+            <a href="{{ item[1]}} ">{{ item[0] | append: ".svg" | asset_url | img_tag }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <p class="fineprint">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. All rights reserved. | <a href="/terms">Terms</a></p>
+  </div>  
+</footer>

@@ -1,7 +1,10 @@
 <header class="page-header">
   <div class="content">
     <a href="{{ shop.url }}" class="logo">{{ shop.name }}</a>
-    <nav>
+    <button class="mobile-menu-button">
+      {{ "open-menu-button.svg" | asset_url | img_tag }}
+    </button>
+    <nav class="site-nav">
       <ul>
         {% for link in linklists.main-menu.links %}
         <li>

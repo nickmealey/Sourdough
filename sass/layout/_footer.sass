@@ -1,21 +1,19 @@
-.page-footer
+.site-footer
   background: $dark-color
-  font-size: 0.7em
   color: $light-color
-  text-align: center
   padding-bottom: 50px
   
   a
     &:link, &:visited
-      color: #bbb
+      color: $light-color
       text-decoration: none
+      
     &:link:hover, &:visited:hover
       color: white
       text-decoration: none
-      
   ul
     display: inline-block
-    margin: 20px 35px
+    margin: 20px 0
     padding: 0
     vertical-align: top
     text-align: left
@@ -35,23 +33,6 @@
     li
       list-style-type: none
       line-height: 1.7em
-      
-      &:nth-child(1)
-        font-size: 1.1em
-        color: white
-        
-        a
-          &:link, &:visited
-            font-size: 1.1em
-            color: white
-            
-  .copyright
-    text-align: center
-    font-size: 0.8em
     
-  input[type=text]
-    padding: 5px
-    border: none
-    
-  input[type=image]
-    display: inline-block
+  .fineprint
+    font-size: 0.7em

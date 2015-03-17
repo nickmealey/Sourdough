@@ -3,13 +3,18 @@
   padding: 15px 0
   
   .logo
-    display: inline-block
-    vertical-align: middle
     margin-right: 15px
+    +middle
     
   nav
-    display: inline-block
-    vertical-align: middle
+    +scale-up("small")
+      +middle
     
+    +respond-to("small")
+      display: none
+      
+      &.active
+        display: block
     li
-      display: inline-block
+      +scale-up("small")
+        display: inline-block

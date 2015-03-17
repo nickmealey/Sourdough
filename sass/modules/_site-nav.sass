@@ -1,0 +1,23 @@
+.mobile-menu-button
+  display: block
+  background: $primary-color
+  padding: 8px 0 6px 10px
+  margin-top: 5px
+  width: 100%
+  text-align: left
+  border-color: darken($primary-color, 10%)
+  
+  +scale-up("small")
+    display: none
+  
+.site-nav
+  +respond-to("small")
+    margin-top: 10px
+    
+    a:link, a:visited
+      display: block
+      background: $dark-color
+      color: white
+      padding: 10px
+      margin: 3px 0
+      +border-radius(3px)

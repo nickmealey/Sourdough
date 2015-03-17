@@ -1,3 +1,4 @@
+// Vertical align children elements
 @mixin align-middle {
   &:before {
     content: '';
@@ -9,6 +10,12 @@
   >* {
     vertical-align: middle;
   }
+}
+
+// One element
+@mixin middle {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 @mixin upcase {
