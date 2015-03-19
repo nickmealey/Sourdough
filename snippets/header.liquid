@@ -1,6 +1,9 @@
 <header class="page-header">
   <div class="content">
-    <a href="{{ shop.url }}" class="logo">{{ shop.name }}</a>
+    {{ settings.shop_logo.png }}
+    <a href="{{ shop.url }}" class="logo">
+      {{ 'shop_logo.png' | asset_url | img_tag }}
+    </a>
     <button class="mobile-menu-button">
       {{ "open-menu-button.svg" | asset_url | img_tag }}
     </button>

@@ -1,10 +1,18 @@
 .page-header
   background: #eee
-  padding: 15px 0
+  
+  .content
+    height: 60px
+    position: relative
+    +align-middle
   
   .logo
+    display: inline-block
     margin-right: 15px
-    +middle
+    height: #{'{{settings.logo_size}}'}
+    
+    img
+      height: 100%
     
   nav
     +scale-up("small")

@@ -61,8 +61,8 @@ define(function(require) {
   function show(){
    if(!disableQuickCart) {
      window.scrollTo(0, 0);
+     menu.show().addClass('active');
      cartButton.addClass('active');
-     menu.slideDown(150);
      header.addClass('active');
    } else {
      menu.find('.cart-contents').hide().fadeIn()
@@ -71,9 +71,9 @@ define(function(require) {
 
   // Hides the menu
   function hide() {
-   cartButton.removeClass('active');
-   menu.slideUp(150);
-   header.removeClass('active');
+    menu.hide().removeClass('active');
+    cartButton.removeClass('active');
+    header.removeClass('active');
   }
 
   // Retrieve items that have the "pre-cart" tag

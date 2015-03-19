@@ -1,7 +1,8 @@
 .site-footer
   background: $dark-color
   color: $light-color
-  padding-bottom: 50px
+  padding: 20px 0
+  text-align: center
   
   a
     &:link, &:visited
@@ -12,27 +13,19 @@
       color: white
       text-decoration: none
   ul
-    display: inline-block
-    margin: 20px 0
+    margin: 10px 0
     padding: 0
-    vertical-align: top
-    text-align: left
-    
-    +respond-to("small")
-      display: block
-      margin: 0
-      padding: 15px
-      text-align: center
-      font-size: 1.4em
-      
-      &.social-links
-        img
-          width: 35px
-          margin: 5px
     
     li
+      display: inline-block
+      margin: 0 5px
       list-style-type: none
-      line-height: 1.7em
+      
+  .social-links
+    margin-top: 20px
+    
+    li
+      margin: 0 5px
     
   .fineprint
     font-size: 0.7em

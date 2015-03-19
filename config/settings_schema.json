@@ -1,5 +1,34 @@
 [
   {
+    "name": "General Appearance",
+    "settings": [
+      {
+        "type": "image",
+        "id": "shop_logo.png",
+        "label": "Logo"
+      },
+      {
+        "type": "select",
+        "id": "logo_size",
+        "label": "Logo size",
+        "options": [
+          {
+          "label": "Large",
+          "value": "80%"
+          },
+          {
+          "label": "Medium",
+          "value": "60%"
+          },
+          {
+          "label": "Small",
+          "value": "50%"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "Social Links", 
     "settings": [ 
       { 

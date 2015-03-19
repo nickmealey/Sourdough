@@ -40,7 +40,6 @@ define(['jquery', 'underscore', 'domReady!'], function($, _) {
   
   // Assign document click events
   $(document).mousedown(function(event){
-    console.log(events);
     // Loop through each event and compare
     for (var i=0; i < events.length; i++) {
       

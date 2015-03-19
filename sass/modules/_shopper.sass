@@ -1,7 +1,9 @@
 .shopper
-  position: relative
-  float: right
-  top: -3px
+  position: absolute
+  top: 0
+  right: 0
+  height: 100%
+  +align-middle
   
   +respond-to("small")
     position: absolute
@@ -40,13 +42,21 @@
     
   .cart-button
     position: relative
+    height: 100%
     display: inline-block
-    padding: 0 10px
+    padding: 0 15px
     text-decoration: none
+    margin: 0 1px
+    background: rgab(255,255,255,0)
+    +transition(background 0.3s ease)
+    +align-middle
     
     &.active
       background: white
       margin: 0
+      z-index: 301
+      border-right: 1px solid $light-color
+      border-left: 1px solid $light-color
       
     .cart-count
       color: white
