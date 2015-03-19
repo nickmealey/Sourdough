@@ -14,7 +14,7 @@
       },
       { 
         "type": "text", 
-        "id": "social.social.instagram", 
+        "id": "social.instagram", 
         "label": "Instagram URL"
       },
       { 
@@ -51,6 +51,11 @@
         "type": "text", 
         "id": "social.yelp", 
         "label": "Yelp URL"
+      },
+      { 
+        "type": "text", 
+        "id": "social.dribbble", 
+        "label": "Dribbble URL"
       }
     ] 
   }

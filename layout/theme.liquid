@@ -1,8 +1,8 @@
 <!DOCTYPE html> 
 <html>
   <head>
-    {% include 'head' %}
     {{ content_for_header }}
+    {% include 'head' %}
   </head>
   <body class="{{ template | handle }} {% if template contains 'product' %}product{% endif %} {% if template contains 'collection' %}collection{% endif %} {% if template contains 'customer' %}customer{% endif %} {% if template contains 'page' %}page{% endif %}">
     {% include 'header' %}
@@ -11,5 +11,4 @@
     </main>
     {% include 'footer' %}
   </body>
-  {% include 'scripts' %}
 </html>

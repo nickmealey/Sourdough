@@ -1,13 +1,15 @@
 <title>{{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-{% case template %}
-	{% when 'index' %} <title>{{ shop.name }} | {{ page_title }}</title>
-	{% when '404' %} <title>Page Not Found | {{ shop.name }}</title>
-	{% else %} <title>{{ page_title }} | {{ shop.name }}</title>
-{% endcase %}
-<meta name="description" content="{% if page_description %}{{ page_description }}{% else %}{{ shop.name }}{% endif %}" />
-<link rel="canonical" href="{{ canonical_url }}">
-<meta name="viewport" content="width=device-width">
-<link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}" />
+{% if page_description %}
+<meta name="description" content="{{ page_description | escape }}" />
+{% endif %}
+<link rel="canonical" href="{{ canonical_url }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8" />
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+<!--[if lt IE 9]>
+{{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
+<![endif]-->
+{% include 'open-graph-tags' %}
 {{ 'styles.scss' | asset_url | stylesheet_tag }}
-{{ '//code.jquery.com/jquery-1.11.2.min.js' | script_tag }}
+<script src="{{ 'require.js'  | asset_url }}"></script>
+{% include 'scripts' %}

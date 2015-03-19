@@ -9,6 +9,7 @@
     </ul>
     <ul class="social-links">
       {% for item in settings %}
+      {{item[0] }}
         {% assign key = item[0] | split: "." %}
         {% assign url = item[1] | strip %}
         {% if key[0] == 'social' and url != "" %}
