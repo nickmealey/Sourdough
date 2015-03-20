@@ -1,40 +1,109 @@
-Account Details and Order History
+<div class="customer-account">
+  <h1 class="thin">{{ customer.name }}'s Account</h1><br>
+  <a href="" class="reset-password-button">Reset Account Password</a> |
+  {{ 'Log out' | customer_logout_link }}
+  <div class="bit">
+    <h4>{{ 'customer.orders.title' | t }}</h4>
+    <div class="bit-content">
+      {% if customer.orders.size != 0 %}
+        <table>
+          <thead>
+            <tr>
+              <th>{{ 'customer.orders.order_number' | t }}</th>
+              <th>{{ 'customer.orders.date' | t }}</th>
+              <th>{{ 'customer.orders.payment_status' | t }}</th>
+              <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+              <th>{{ 'customer.orders.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr>
+                <td>{{ order.name | link_to: order.customer_url }}</td>
+                <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                <td>{{ order.financial_status_label }}</td>
+                <td>{{ order.fulfillment_status_label }}</td>
+                <td>{{ order.total_price | money }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        {{ 'customer.orders.none' | t }}
+      {% endif %}
+    </div>
+  </div>
+  <div class="bit account-details">
+    <h4>{{ 'customer.account.details' | t }}</h4>
+    <div class="bit-content">
+      <h2>{{ customer.name }}</h2>
+      {% if customer.default_address != nil %}
+        <p>
+        {{ customer.default_address.address1 }}<br>
 
-{{ customer.name }}
-{{ customer.email }}
-{% if customer.default_address != nil %}
-	<p>{{ customer.default_address.address1 }}</p>
-	{% if customer.default_address.address2 != "" %}
-		<p>{{ customer.default_address.address2 }}</p>
-	{% endif %}
-	<p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
-	<p>{{ customer.default_address.zip}}</p>
-	<p>{{ customer.default_address.phone }}</p>
-{% endif %}
+        {% if customer.default_address.address2 != "" %}
+          {{ customer.default_address.address2 }}<br>
+        {% endif %}
 
-{% if customer.orders.size > 0 %}
-	<table>
-		<thead>
-			<tr>
-				<th>Order</th>
-				<th>Date</th>
-				<th>Payment Status</th>
-				<th>Fulfillment Status</th>
-				<th>Total</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for order in customer.orders %}
-				<tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
-					<td>{{ order.name | link_to: order.customer_url }}</td>
-					<td>{{ order.created_at | date: "%b %d, %Y" }}</td>
-					<td>{{ order.financial_status }}</td>
-					<td>{{ order.fulfillment_status }}</td>
-					<td>{{ order.total_price | money }}</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-{% else %}
-	<p>You haven't placed any orders yet.</p>
-{% endif %}
+        {% if customer.default_address.city != "" %}
+          {{ customer.default_address.city }}<br>
+        {% endif %}
+
+        {% if customer.default_address.province_code != "" %}
+          {{ customer.default_address.province_code | upcase }}<br>
+        {% endif %}
+
+        {% if customer.default_address.zip != "" %}
+          {{ customer.default_address.zip | upcase }}<br>
+        {% endif %}
+
+        {% if customer.default_address.country != "" %}
+          {{ customer.default_address.country }}<br>
+        {% endif %}
+
+        {% if customer.default_address.phone != "" %}
+          {{ customer.default_address.phone }}
+        {% endif %}
+        </p>
+
+      {% endif %}
+
+      <p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+    </div>
+  </div>
+</div>
+<div class="reset-password">
+  {% form 'recover_customer_password' %}
+    {{ form.errors | default_errors }}
+    <input type="hidden" name="email" value="{{ customer.email }}" />
+  {% endform %}
+</div>
+<script type="text/javascript">
+  (function($) {
+    $('.reset-password-button').click(function(event) {
+      event.preventDefault();
+      
+      if (confirm("Are you sure you want to reset your password?")) {
+        
+        var form = $('.reset-password form');
+        
+        $.ajax({
+          url: form.attr("action"),
+          method: form.attr("method"),
+          data: form.serialize(),
+          success: function() {
+            rhino.notify("We sent an email to {{ customer.email }} to reset your password.", 5000);
+          },
+          error: function(response) {
+            if (response.status == 429) {
+              alert("You've tried to reset your password too many times. Please wait 10 minutes.");
+            } else {
+              alert("Something went wrong and we couldn't reset your password.");
+            }
+            
+          }
+        })
+      }
+    });
+  })(jQuery);
+</script>

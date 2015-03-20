@@ -1,0 +1,17 @@
+.split-cell
+  &:after
+    content: ''
+    display: block
+    clear: both
+    
+  > *
+    width: 50%
+    
+    +respond-to("small")
+      width: 100%
+    
+  > *:nth-child(1)
+    float: left
+  
+  > *:nth-child(2)
+    float: right

@@ -1,68 +1,29 @@
-.template-customers-login
-  background: url('http://d186ggh4s776y3.cloudfront.net/Images/website-images/login-waterfall-1.jpg')
-  background-color: $dark-color
-  background-position: center top
-  background-repeat: no-repeat
-  background-size: 100% auto
-  
-  +scale-down("medium")
-    background-size: auto 100%
-.customers
-  text-align: center
-  
-  +respond-to("small")
-    font-size: 0.8em
-  
-  .small-content
-    margin-top: 60px
-    padding: 20px
-    background: rgba(255,255,255,0.9)
-    border: 1px solid white
-    +border-top-radius(3px)
-    +border-bottom-radius(3px)
+.customer
 
-  h1
-    +upcase
-    font-weight: 300
-  
-  label
-    display: block
-    margin: 20px auto
-    width: 60%
-    color: $light-color
-    clear: both
-    position: relative
-  
-    span
-      position: absolute
-      top: 7px
-      left: -40px
-      
+  #main
     +respond-to("small")
-      width: 80%
+      font-size: 0.8em
+
+    h1
+      +upcase
+      text-align: center
+      font-weight: 300
+    
+      input[type=email], input[type=password], input[type=text]
+        width: 100%
+    
+    label
+      display: block
+      margin: 10px 0
+      color: $light-color
       
-      span
-        position: static
-        display: block
-  
-    input[type=email], input[type=password], input[type=text]
-      width: 150px
+    .form-buttons
+      text-align: center
+      margin: 20px 0
     
-  .form-link
-    margin: 5px 10px
-  
-  input[type=submit]
-    margin: 10px
-    
-.customers-register
-  label span
-    left: -50px
-.customers-active
-  label span
-    left: -95px
-.customers-reset-password
-  label span
-    left: -95px
+.new-account
+  margin-top: 80px
+  max-width: 300px
 
 .customer-account
   table

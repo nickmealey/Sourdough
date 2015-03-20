@@ -1,11 +1,11 @@
 [
   {
-    "name": "General Appearance",
+    "name": "Logo",
     "settings": [
       {
         "type": "image",
         "id": "shop_logo.png",
-        "label": "Logo"
+        "label": "Logo (larger than 80px tall for best quality)"
       },
       {
         "type": "select",

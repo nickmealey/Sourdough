@@ -6,6 +6,15 @@
         <a href="{{ link.url }}">{{ link.title }}</a>
       </li>
       {% endfor %}
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <li><a href="/account">{{ customer.first_name }}</a></li>
+          <li>{{ 'Log out' | customer_logout_link }}</li>
+        {% else %}
+          <li>{{ 'Login' | customer_login_link }}</li>
+          <li>{{ 'New Account' | customer_register_link }}</li>
+        {% endif %}
+      {% endif %}
     </ul>
     <ul class="social-links">
       {% for item in settings %}
