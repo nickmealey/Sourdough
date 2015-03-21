@@ -6,6 +6,12 @@
     position: relative
     +align-middle
     
+    +respond-to("medium")
+      height: 70px
+      
+      &:before
+        display: none
+      
     +respond-to("small")
       margin-bottom: 50px
   
@@ -14,11 +20,18 @@
     margin-right: 15px
     height: #{'{{settings.logo_size}}'}
     
+    +respond-to("medium")
+      margin: 4px 0
+      height: calc(#{'{{settings.logo_size}}'} - 10px)
+    
     img
       height: 100%
     
   nav
-    +scale-up("small")
+    +respond-to("medium")
+      display: block
+      
+    +scale-up("medium")
       +middle
     
     +respond-to("small")
