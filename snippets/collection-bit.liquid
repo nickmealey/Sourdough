@@ -1,0 +1,11 @@
+{% if collection.products.count > 0 %}
+  <div class="collection-bit">
+    <ul class="collection-thumbs">
+      {% for product in collection.products %}
+        <li>
+          {% include 'product-bit' with product: product, image_size: "large" %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

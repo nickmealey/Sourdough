@@ -1,53 +1,5 @@
-<h1>{{ collection.title}}</h1>
-<ul>
- <!-- Loop through all the products of that collection -->
- {% for product in collection.products %}
-   <li>{{ product.title }}</li>
- {% endfor %}
-</ul>
-<!-- Get collection_id from metafields -->
-{% assign collection_id = collection.metafields.global.collection_id | strip %}
-
-<!-- Loop through every collection in the store -->
-{% for sub_collection in collections %}
- {% assign sub_collection_id = sub_collection.metafields.global.parent_collection_id | strip %}
- <!-- Check to see if that collection is a child of our main collection -->
- {% if sub_collection_id == collection_id %}
- 
- <!-- Check for title metafield -->
- {% if sub_collection.metafields.global.title %}
- {% assign sub_collection_title = sub_collection.metafields.global.title %}
- {% else %}
-   {% assign sub_collection_title = sub_collection.title %}
-   {% endif %}
-   <h3>{{ sub_collection_title }}</h3>
-   <ul>
-     <!-- Loop through each product of the sub-collection -->
-     {% for product in sub_collection.products %}
-       <li>{{ product.title }}</li>
-     {% endfor %}
-   </ul>
- {% endif %}
-{% endfor %}
-
-<!-- {% paginate collection.products by 12 %}
-  {{ collection.title }}
-  {{ collection.description }}
-  {% if collection.products.size == 0 %}
-    No products in this collection.
-  {% else %}
-    <table>
-      {% tablerow product in collection.products cols:4 %}
-        <a href="{{ product.url | within:collection }}">
-          {{ product.featured_image | product_img_url:'medium' | img_tag:product.title }}
-          {{ product.title }}
-          {{ product.price | money }}
-        </a>
-      {% endtablerow %}
-    </table>
-    {% if paginate.pages > 1 %}
-        {{ paginate | default_pagination }}
-      <a href="/collections/{{ collection.handle }}?view=all">view all</a>
-    {% endif %}
-  {% endif %}
-{% endpaginate %} -->
+<div class="collection">
+  <h1>{{ collection.title}}</h1>
+  <p>{{ collection.description }}</p>
+  {% include 'collection-bit' with collection: collection %}
+</div>
