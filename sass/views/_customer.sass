@@ -13,7 +13,6 @@
         width: 100%
     
     label
-      display: block
       margin: 10px 0
       color: $light-color
       
@@ -23,7 +22,27 @@
     
 .new-account
   margin-top: 80px
-  max-width: 300px
+  max-width: 380px
+  
+  label
+    display: block
+  
+.login
+  +scale-up("small")
+    max-width: 300px
+    
+  label
+    display: block
+  
+  form
+    input[type=email], input[type=password]
+      width: 100%
+      
+    p
+      text-align: center
+      color: $light-color
+      font-size: 0.9em
+      margin-bottom: 30px
 
 .customer-account
   table
@@ -56,6 +75,12 @@
       font-size: 0.7em
       
 .customer-addresses
+  label
+    color: $dark-color !important
+    
+  input[type=text]
+    width: 100%
+
   table
     td
       padding: 5px 10px 5px 0

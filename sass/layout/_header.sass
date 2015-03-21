@@ -5,6 +5,9 @@
     height: 60px
     position: relative
     +align-middle
+    
+    +respond-to("small")
+      margin-bottom: 50px
   
   .logo
     display: inline-block
@@ -19,6 +22,7 @@
       +middle
     
     +respond-to("small")
+      background: white
       display: none
       
       &.active

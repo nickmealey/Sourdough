@@ -1,0 +1,27 @@
+{% if customer.has_account %}
+  {% assign customer_has_account = "true" %}
+{% else %}
+  {% assign customer_has_account = "false" %}
+{% endif %}
+<script type="text/javascript">
+  Shopify.settings = {{ settings | json }};
+  
+  Shopify.shop = {
+    moneyWithCurrencyFormat: '{{shop.money_with_currency_format}}'
+  };
+  
+  Shopify.page = {
+    handle: '{{page.handle}}',
+    template: '{{template}}'
+  }
+  
+  Shopify.customer = {
+    defaultAddress: '{{customer.default_address}}',
+    email: '{{customer.email}}',
+    firstName: '{{customer.first_name}}',
+    lastName: '{{customer.last_name}}',
+    name: '{{customer.name}}',
+    hasAccount: {{customer_has_account}},
+    id: '{{customer.id}}'
+  };
+</script>
